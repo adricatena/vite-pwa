@@ -19,7 +19,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hola VitePWA!</h1>
+      <h1>Hola VitePWA! con localStorage</h1>
       <div className="card">
         <button onClick={() => setCount(1)}>
           count is {count}
