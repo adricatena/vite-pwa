@@ -7,7 +7,7 @@ import { useCountStore } from './zustand.ts'
 function App() {
   const count = useCountStore(s => s.count);
   const setCount = useCountStore(s => s.setCount);
-  // const [count, setCount] = useState(0)
+  const reset = useCountStore(s => s.reset);
 
   return (
     <>
@@ -23,6 +23,9 @@ function App() {
       <div className="card">
         <button onClick={() => setCount(1)}>
           count is {count}
+        </button>
+        <button onClick={reset}>
+          Reset
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

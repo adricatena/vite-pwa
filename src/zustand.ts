@@ -5,7 +5,8 @@ interface State {
     count: number
 }
 interface Actions {
-    setCount: (by: number) => void
+    setCount: (by: number) => void,
+    reset: () => void
 }
 
 const initialState: State = {
@@ -15,4 +16,5 @@ const initialState: State = {
 export const useCountStore = create<State & Actions>()(persist((set) => ({
     ...initialState,
     setCount: (by) => set(s => ({ count: s.count + by })),
+    reset: () => set(initialState)
 }), { name: "count-storage" }))
