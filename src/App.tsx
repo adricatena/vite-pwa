@@ -1,11 +1,13 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import appLogo from '/favicon.svg'
 import PWABadge from './PWABadge.tsx'
 import './App.css'
+import { useCountStore } from './zustand.ts'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const count = useCountStore(s => s.count);
+  const setCount = useCountStore(s => s.setCount);
+  // const [count, setCount] = useState(0)
 
   return (
     <>
@@ -19,7 +21,7 @@ function App() {
       </div>
       <h1>Hola VitePWA!</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount(1)}>
           count is {count}
         </button>
         <p>
